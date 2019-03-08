@@ -25,7 +25,7 @@ public class AuthorDAO implements IAuthorDAO{
 	private PreparedStatement preparedStatement = null;
 	private ResultSet resultSet = null;
 	
-	public static final String URL = "jdbc:postgresql://127.0.0.1:5432/authors_books_postgresql";
+	public static final String URL = "jdbc:postgresql://127.0.0.1:5432/authors_books";
    
     /**
      * Get a connection to database
@@ -255,7 +255,7 @@ public class AuthorDAO implements IAuthorDAO{
     public static void main(String[] args) throws SQLException {
         AuthorDAO dao = new AuthorDAO();
         
-        System.out.println(dao.getAuthor(9));
+        System.out.println(dao.getAuthor(18));
         
         //System.out.println(dao.getAllAuthors());
         
