@@ -51,7 +51,6 @@ public class authorController {
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_XML)
-	@Path("/test3")
 	public boolean addAuthor(Author author){
 		return dao.insertAuthor(author);
 	}
