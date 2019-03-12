@@ -303,15 +303,15 @@ public class DAO implements IAuthorDAO, IBookDAO {
 	}
 
 	@Override
-	public boolean insertBook(Book book, Author author) {
+	public boolean insertBook(Author author, Book book) {
 		DAO connector = new DAO();
 		Connection connection = connector.getConnection();
 		try {
 			PreparedStatement ps = connection
-					.prepareStatement("INSERT INTO books VALUES (?, ?)");
+					.prepareStatement("INSERT INTO books(id,author_id,title) VALUES (default,?, ?)");
 			// ps.setInt(1, book.getId());
-			ps.setInt(2, author.getId());
-			ps.setString(3, book.getTitle());
+			ps.setInt(1, author.getId());
+			ps.setString(2, book.getTitle());
 
 			int i = ps.executeUpdate();
 			if (i == 1) {
@@ -324,7 +324,7 @@ public class DAO implements IAuthorDAO, IBookDAO {
 	}
 
 	@Override
-	public boolean updateBook(Book book, Author author) {
+	public boolean updateBook(Book book) {
 		DAO connector = new DAO();
 		Connection connection = connector.getConnection();
 		try {
@@ -387,11 +387,19 @@ public class DAO implements IAuthorDAO, IBookDAO {
 		// dao.writeMetaData(query2);
 
 		// System.out.p
-		// System.out.println(dao.getAllAuthors());rintln(dao.getAllAuthors());
+		// System.out.println(dao.getAllAuthors());
 
 		// System.out.println(dao.getBook(3));
 		// System.out.println(dao.getAllBooks());
 
+		Author a = dao.getAuthor(6);
+		// dao.insertBook(a,b);
+
+		// System.out.println(b);
+		// dao.deleteBook(11);
+
+		Book b = new Book(10, "Prokleta Avlija");
+		// dao.updateBook(b);
 	}
 
 }

@@ -16,9 +16,10 @@ public class Book {
 		this.title = title;
 	}
 
-	public Book(String title) {
+	public Book(int id, String title) {
 		super();
 		this.title = title;
+		this.id = id;
 	}
 
 	public int getId() {
