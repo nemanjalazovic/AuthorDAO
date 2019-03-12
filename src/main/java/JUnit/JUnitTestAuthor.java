@@ -1,4 +1,4 @@
-package pkg;
+package JUnit;
 
 import java.sql.Connection;
 
@@ -7,21 +7,22 @@ import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
 
-import DAO.AuthorDAO;
+import pkg.Author;
+import DAO.DAO;
 
-public class JUnitTest {
-	AuthorDAO authorDao;
+public class JUnitTestAuthor {
+	DAO DAO;
 	Author author;
 
 	@Before
 	public void setup() {
-		authorDao = new AuthorDAO();
+		DAO = new DAO();
 
 	}
 
 	@Test
 	public void testGetAuthor() {
-		author = authorDao.getAuthor(4);
+		author = DAO.getAuthor(4);
 		Assert.assertEquals(
 				"Successfully fetched a single author from the table author",
 				"Emile Zola", author.getName());
@@ -32,26 +33,26 @@ public class JUnitTest {
 
 		Assert.assertEquals(
 				"Successfully fetched a multiple authors from the table author",
-				7, authorDao.getAllAuthors().size());
+				7, DAO.getAllAuthors().size());
 	}
 
 	@Test
 	public void TestUpdateAuthor() {
-		author = authorDao.getAuthor(3);
+		author = DAO.getAuthor(3);
 		author.setName("Lav Tolstoj");
 		System.out.println(author.getName());
 		Assert.assertEquals(
 				"Successfully update a single author from the table author",
-				true, authorDao.updateAuthor(author));
+				true, DAO.updateAuthor(author));
 	}
 
 	@Test
 	public void TestDeleteAuthor() {
-		author = authorDao.getAuthor(3);
+		author = DAO.getAuthor(3);
 		System.out.println(author.getName());
 		Assert.assertEquals(
 				"Successfully deleted a single author from the table author",
-				true, authorDao.deleteAuthor(author.getId()));
+				true, DAO.deleteAuthor(author.getId()));
 	}
 
 	@Test
@@ -61,7 +62,7 @@ public class JUnitTest {
 		author.setName("Jovan Ducic");
 		Assert.assertEquals(
 				"Successfully insert a single author from the table author",
-				true, authorDao.insertAuthor(author));
+				true, DAO.insertAuthor(author));
 	}
 
 	@Test
@@ -72,27 +73,27 @@ public class JUnitTest {
 		author.setName("Fjodor Dostojevski");
 		Assert.assertEquals(
 				"Successfully insert a single author from the table author",
-				true, authorDao.insertAuthor(author));
+				true, DAO.insertAuthor(author));
 
 		author = new Author();
 		author.setId(10);
 		author.setName("Herman Melvil");
 		Assert.assertEquals(
 				"Successfully insert a single author from the table author",
-				true, authorDao.insertAuthor(author));
+				true, DAO.insertAuthor(author));
 
 		// fetching and updating the author
-		author = authorDao.getAuthor(9);
+		author = DAO.getAuthor(9);
 		author.setName("Stiv Dostojevski");
 		Assert.assertEquals(
 				"Successfully update a single author from the table author",
-				true, authorDao.updateAuthor(author));
+				true, DAO.updateAuthor(author));
 
 		// delete the author
-		author = authorDao.getAuthor(11);
+		author = DAO.getAuthor(11);
 		Assert.assertEquals(
 				"Successfully deleted a single author from the table author",
-				true, authorDao.deleteAuthor(author.getId()));
+				true, DAO.deleteAuthor(author.getId()));
 
 	}
 

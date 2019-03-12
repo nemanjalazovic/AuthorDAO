@@ -10,11 +10,10 @@ public interface IBookDAO {
 
 	public ArrayList<Book> getAllBooks();
 
-	public boolean insertBook(Book book, Author author);
+	public boolean insertBook(Author author, Book book);
 
-	public boolean updateBook(Book book, Author author);
+	public boolean updateBook(Book book);
 
 	public boolean deleteBook(int id);
-
 
 }

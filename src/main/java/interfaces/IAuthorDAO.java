@@ -1,9 +1,9 @@
-package pkg;
+package interfaces;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import javax.security.sasl.AuthorizeCallback;
+import pkg.Author;
 
 public interface IAuthorDAO {
 	public String GetVersion() throws SQLException;

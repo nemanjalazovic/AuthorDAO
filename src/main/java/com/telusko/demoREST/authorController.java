@@ -13,12 +13,12 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import pkg.Author;
-import DAO.AuthorDAO;
+import DAO.DAO;
 
 @Path("/authors")
 public class authorController {
 
-	AuthorDAO dao = new AuthorDAO();
+	DAO dao = new DAO();
 
 	@GET
 	@Path("/test")
