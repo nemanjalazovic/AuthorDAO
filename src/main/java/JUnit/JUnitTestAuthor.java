@@ -1,12 +1,8 @@
 package JUnit;
 
-import java.sql.Connection;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.slf4j.Logger;
-
 import pkg.Author;
 import DAO.DAO;
 
