@@ -1,8 +1,12 @@
 package pkg;
 
+import io.swagger.annotations.ApiModel;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
+@ApiModel("Author bean")
+
 public class Author {
 	private int id;
 	private String name;
