@@ -1,11 +1,10 @@
 package pkg;
 
-import io.swagger.annotations.ApiModel;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-@ApiModel("Author bean")
+//@ApiModel("Author bean")
 
 public class Author {
 	private int id;
@@ -19,7 +18,6 @@ public class Author {
 
 	public Author() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public int getId() {

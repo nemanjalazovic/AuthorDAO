@@ -3,16 +3,17 @@ package JUnit;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
 import pkg.Author;
-import DAO.DAO;
+import DAO.AuthorDAO;
 
 public class JUnitTestAuthor {
-	DAO DAO;
+	AuthorDAO DAO;
 	Author author;
 
 	@Before
 	public void setup() {
-		DAO = new DAO();
+		DAO = new AuthorDAO();
 
 	}
 
