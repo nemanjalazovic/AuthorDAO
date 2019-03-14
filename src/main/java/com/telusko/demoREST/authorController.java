@@ -1,9 +1,5 @@
 package com.telusko.demoREST;
 
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
-import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 
 import javax.ws.rs.Consumes;
@@ -14,23 +10,22 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import DAO.AuthorDAO;
 import pkg.Author;
-import DAO.DAO;
 
 @Path("/authors")
 public class authorController {
 	private static final Logger LOGGER = LoggerFactory
 			.getLogger(authorController.class);
 
-	DAO dao = new DAO();
+	AuthorDAO dao = new AuthorDAO();
 
-	@GET
+	/*@GET
 	@Path("/test")
 	@Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
 	@ApiOperation(produces = "application/json", value = "Fetch author details", httpMethod = "GET", notes = "<br>This service fetches author details", response = Author.class)
@@ -47,7 +42,9 @@ public class authorController {
 		};
 		response = Response.status(200).entity(entity).build();
 		return response;
-	}
+	}*/
+	
+	
 
 	@GET
 	@Path("/test2")

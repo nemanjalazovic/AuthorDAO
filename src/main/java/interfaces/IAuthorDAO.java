@@ -18,8 +18,4 @@ public interface IAuthorDAO {
 
 	public boolean deleteAuthor(int id);
 
-	public void writeMultipleRows(String query) throws SQLException;
-
-	public void writeMetaData(String query) throws SQLException;
-
 }
