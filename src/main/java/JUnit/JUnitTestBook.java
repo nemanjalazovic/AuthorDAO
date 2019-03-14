@@ -8,16 +8,16 @@ import org.junit.Test;
 
 import pkg.Author;
 import pkg.Book;
-import DAO.DAO;
+import DAO.BookDAO;
 
 public class JUnitTestBook {
-	DAO DAO;
+	BookDAO DAO;
 	Book book;
 	Author author;
 
 	@Before
 	public void setup() {
-		DAO = new DAO();
+		DAO = new BookDAO();
 
 	}
 
