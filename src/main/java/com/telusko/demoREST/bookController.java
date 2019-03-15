@@ -1,5 +1,9 @@
 package com.telusko.demoREST;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.SwaggerDefinition;
+import io.swagger.annotations.Tag;
+
 import java.util.ArrayList;
 
 import javax.ws.rs.Consumes;
@@ -16,6 +20,8 @@ import pkg.Book;
 import DAO.BookDAO;
 
 @Path("/books")
+@Api("/Books ")
+@SwaggerDefinition(tags= {@Tag(name="/Books",description="REST Endpoints for Books")})
 public class bookController {
 
 	BookDAO dao = new BookDAO();

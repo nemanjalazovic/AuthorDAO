@@ -69,6 +69,35 @@
 
 		<!-- added glassfish -->
 		
+		<!-- added swagger dependency-->
+		<!-- https://mvnrepository.com/artifact/io.swagger/swagger-annotations -->
+	<dependency>
+    <groupId>io.swagger</groupId>
+    <artifactId>swagger-annotations</artifactId>
+    <version>1.5.20</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/io.swagger/swagger-jaxrs -->
+<dependency>
+    <groupId>io.swagger</groupId>
+    <artifactId>swagger-jaxrs</artifactId>
+    <version>1.5.20</version>
+</dependency>
+
+		<!-- https://mvnrepository.com/artifact/io.swagger/swagger-core -->
+<dependency>
+    <groupId>io.swagger</groupId>
+    <artifactId>swagger-core</artifactId>
+    <version>1.5.20</version>
+</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/io.swagger/swagger-models -->
+<dependency>
+    <groupId>io.swagger</groupId>
+    <artifactId>swagger-models</artifactId>
+    <version>1.5.20</version>
+</dependency>
+		
 		
 
 

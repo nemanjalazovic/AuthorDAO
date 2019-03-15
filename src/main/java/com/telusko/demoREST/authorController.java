@@ -1,5 +1,9 @@
 package com.telusko.demoREST;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.SwaggerDefinition;
+import io.swagger.annotations.Tag;
+
 import java.util.ArrayList;
 
 import javax.ws.rs.Consumes;
@@ -19,6 +23,8 @@ import DAO.AuthorDAO;
 import pkg.Author;
 
 @Path("/authors")
+@Api("/Authors ")
+@SwaggerDefinition(tags= {@Tag(name="/Authors",description="REST Endpoints for Authors")})
 public class authorController {
 	private static final Logger LOGGER = LoggerFactory
 			.getLogger(authorController.class);
