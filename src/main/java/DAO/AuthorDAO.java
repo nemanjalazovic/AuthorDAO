@@ -32,6 +32,8 @@ public class AuthorDAO implements IAuthorDAO {
 				author.setName(rs.getString("name"));
 				return author;
 			}
+			connection.close();
+
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
@@ -56,8 +58,13 @@ public class AuthorDAO implements IAuthorDAO {
 				author.setName(rs.getString("name"));
 				list.add(author);
 			}
+			connection.close();
+
 			return list;
-		} catch (SQLException ex) {
+
+		}
+
+		catch (SQLException ex) {
 			ex.printStackTrace();
 		}
 		return null;
@@ -77,6 +84,8 @@ public class AuthorDAO implements IAuthorDAO {
 			if (i == 1) {
 				return true;
 			}
+			connection.close();
+
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
@@ -97,6 +106,8 @@ public class AuthorDAO implements IAuthorDAO {
 			if (i == 1) {
 				return true;
 			}
+			connection.close();
+
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
@@ -114,6 +125,8 @@ public class AuthorDAO implements IAuthorDAO {
 			if (i == 1) {
 				return true;
 			}
+			connection.close();
+
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
@@ -131,6 +144,7 @@ public class AuthorDAO implements IAuthorDAO {
 			if (rs.next()) {
 				System.out.println(rs.getString(1));
 			}
+			connection.close();
 
 		} catch (SQLException ex) {
 
@@ -144,7 +158,7 @@ public class AuthorDAO implements IAuthorDAO {
 	public static void main(String[] args) throws SQLException {
 		AuthorDAO dao = new AuthorDAO();
 
-		// System.out.println(dao.getAuthor(18));
+		 System.out.println(dao.getAuthor(18));
 		// System.out.println(dao.getAllAuthors());
 
 		Author a1 = new Author(8, "Mark Tven");

@@ -49,5 +49,19 @@ public class DBConnection {
 			throw new RuntimeException("Error connecting to the database", ex);
 		}
 	}
+	
+	private void close() {
+		try {
+			if (resultSet != null) {
+				resultSet.close();
+			}
+
+			if (connect != null) {
+				connect.close();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 }

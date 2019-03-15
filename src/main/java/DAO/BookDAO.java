@@ -33,7 +33,9 @@ public class BookDAO implements IBookDAO {
 
 				list.add(book);
 			}
+			connection.close();
 			return list;
+
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
@@ -58,6 +60,8 @@ public class BookDAO implements IBookDAO {
 
 				return book;
 			}
+			connection.close();
+
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
@@ -80,6 +84,8 @@ public class BookDAO implements IBookDAO {
 			if (i == 1) {
 				return true;
 			}
+			connection.close();
+
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
@@ -101,6 +107,8 @@ public class BookDAO implements IBookDAO {
 			if (i == 1) {
 				return true;
 			}
+			connection.close();
+
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
@@ -119,6 +127,8 @@ public class BookDAO implements IBookDAO {
 			if (i == 1) {
 				return true;
 			}
+			connection.close();
+
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
