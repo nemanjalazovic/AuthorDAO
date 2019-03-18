@@ -16,22 +16,25 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import pkg.Author;
 import pkg.Book;
 import DAO.BookDAO;
 
 @Path("/books")
 @Api("/Books ")
-@SwaggerDefinition(tags= {@Tag(name="/Books",description="REST Endpoints for Books")})
+@SwaggerDefinition(tags = { @Tag(name = "/Books", description = "REST Endpoints for Books") })
 public class bookController {
 
 	BookDAO dao = new BookDAO();
 
-	@GET
-	@Path("/test")
-	@Produces(MediaType.APPLICATION_JSON)
-	public String getMessage() {
-		return "pleasure is mine!";
-	}
+	/*
+	 * @GET
+	 * 
+	 * @Path("/test")
+	 * 
+	 * @Produces(MediaType.APPLICATION_JSON) public String getMessage() { return
+	 * "pleasure is mine!"; }
+	 */
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
@@ -46,11 +49,11 @@ public class bookController {
 		return dao.getBook(id);
 	}
 
-	/*@POST
+	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	public boolean addBook(Author author, Book book) {
 		return dao.insertBook(author, book);
-	}*/
+	}
 
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
