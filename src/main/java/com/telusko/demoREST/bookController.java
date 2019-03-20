@@ -49,11 +49,11 @@ public class bookController {
 		return dao.getBook(id);
 	}
 
-	@POST
+	/*@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	public boolean addBook(Author author, Book book) {
 		return dao.insertBook(author, book);
-	}
+	}*/
 
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)

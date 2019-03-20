@@ -1,4 +1,4 @@
-package DAO;
+package Other;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,6 +8,9 @@ import java.sql.SQLException;
 import java.util.Formatter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import DAO.AuthorDAO;
+import DAO.DBConnection;
 
 public class OtherMethodsDAO {
 	
