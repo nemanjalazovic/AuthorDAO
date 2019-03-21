@@ -2,6 +2,8 @@ package JUnit;
 
 import static org.junit.Assert.*;
 
+import java.sql.SQLException;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,7 +24,7 @@ public class JUnitTestBook {
 	}
 
 	@Test
-	public void testGetBook() {
+	public void testGetBook() throws SQLException {
 		book = DAO.getBook(4);
 		Assert.assertEquals(
 				"Successfully fetched a single book from the table books",
@@ -30,7 +32,7 @@ public class JUnitTestBook {
 	}
 
 	@Test
-	public void TestGetAllBooks() {
+	public void TestGetAllBooks() throws SQLException {
 
 		Assert.assertEquals(
 				"Successfully fetched a multiple books from the table books",
@@ -38,7 +40,7 @@ public class JUnitTestBook {
 	}
 
 	@Test
-	public void TestUpdateBook() {
+	public void TestUpdateBook() throws SQLException {
 		book = DAO.getBook(10);
 		book.setTitle("Prokleta avlija");
 		System.out.println(book.getTitle());
@@ -48,7 +50,7 @@ public class JUnitTestBook {
 	}
 
 	@Test
-	public void TestDeleteBook() {
+	public void TestDeleteBook() throws SQLException {
 		book = DAO.getBook(22);
 		System.out.println(book.getTitle());
 		Assert.assertEquals(
@@ -57,7 +59,7 @@ public class JUnitTestBook {
 	}
 
 	@Test
-	public void TestInsertBook() {
+	public void TestInsertBook() throws SQLException {
 		book = new Book();
 		author = new Author();
 		author.setId(19);

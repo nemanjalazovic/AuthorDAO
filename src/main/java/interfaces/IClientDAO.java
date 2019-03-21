@@ -6,14 +6,14 @@ import java.util.ArrayList;
 import pkg.Client;
 
 public interface IClientDAO {
-	public Client getClient(int id);
+	public Client getClient(int id) throws SQLException;
 
-	public ArrayList<Client> getAllClients();
+	public ArrayList<Client> getAllClients() throws SQLException;
 
-	public boolean insertClient(Client client) throws ClassNotFoundException;
+	public boolean insertClient(Client client) throws ClassNotFoundException, SQLException;
 
-	public boolean updateClient(Client client) throws ClassNotFoundException;
+	public boolean updateClient(Client client) throws ClassNotFoundException, SQLException;
 
-	public boolean deleteClient(int id) throws ClassNotFoundException;
+	public boolean deleteClient(int id) throws ClassNotFoundException, SQLException;
 
 }

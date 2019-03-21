@@ -8,14 +8,14 @@ import pkg.Author;
 public interface IAuthorDAO {
 	public String GetVersion() throws SQLException;
 
-	public Author getAuthor(int id);
+	public Author getAuthor(int id) throws SQLException;
 
-	public ArrayList<Author> getAllAuthors();
+	public ArrayList<Author> getAllAuthors() throws SQLException;
 
-	public boolean insertAuthor(Author author);
+	public boolean insertAuthor(Author author) throws SQLException;
 
-	public boolean updateAuthor(Author author);
+	public boolean updateAuthor(Author author) throws SQLException;
 
-	public boolean deleteAuthor(int id);
+	public boolean deleteAuthor(int id) throws SQLException;
 
 }

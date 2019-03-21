@@ -2,6 +2,8 @@ package JUnit;
 
 import static org.junit.Assert.*;
 
+import java.sql.SQLException;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,7 +24,7 @@ public class JUnitTestClient {
 	}
 
 	@Test
-	public void testGetClient() {
+	public void testGetClient() throws SQLException {
 		client = DAO.getClient(16);
 		Assert.assertEquals(
 				"Successfully fetched a single client from the table clients",
@@ -30,7 +32,7 @@ public class JUnitTestClient {
 	}
 
 	@Test
-	public void TestGetAllClients() {
+	public void TestGetAllClients() throws SQLException {
 
 		Assert.assertEquals(
 				"Successfully fetched a multiple clients from the table clients",
@@ -38,7 +40,7 @@ public class JUnitTestClient {
 	}
 
 	@Test
-	public void TestUpdateClient() throws ClassNotFoundException {
+	public void TestUpdateClient() throws ClassNotFoundException, SQLException {
 		client = DAO.getClient(20);
 		client.setName("Stiv");
 		System.out.println(client.getName());
@@ -48,7 +50,7 @@ public class JUnitTestClient {
 	}
 
 	@Test
-	public void TestDeleteClient() throws ClassNotFoundException {
+	public void TestDeleteClient() throws ClassNotFoundException, SQLException {
 		client = DAO.getClient(3);
 		Assert.assertEquals(
 				"Successfully deleted a single client from the table clients",
@@ -56,7 +58,7 @@ public class JUnitTestClient {
 	}
 
 	@Test
-	public void TestInsertClient() throws ClassNotFoundException {
+	public void TestInsertClient() throws ClassNotFoundException, SQLException {
 		client = new Client();
 		client.setName("Jovan");
 		client.setSurname("Jovanovic");
@@ -68,7 +70,7 @@ public class JUnitTestClient {
 	}
 
 	@Test
-	public void TestCRUDAuthor() throws ClassNotFoundException {
+	public void TestCRUDAuthor() throws ClassNotFoundException, SQLException {
 		// inserting the client
 		client = new Client();
 		client.setName("Jovan");

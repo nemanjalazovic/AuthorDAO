@@ -1,5 +1,7 @@
 package JUnit;
 
+import java.sql.SQLException;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,7 +20,7 @@ public class JUnitTestAuthor {
 	}
 
 	@Test
-	public void testGetAuthor() {
+	public void testGetAuthor() throws SQLException {
 		author = DAO.getAuthor(4);
 		Assert.assertEquals(
 				"Successfully fetched a single author from the table author",
@@ -26,7 +28,7 @@ public class JUnitTestAuthor {
 	}
 
 	@Test
-	public void TestGetAllAuthors() {
+	public void TestGetAllAuthors() throws SQLException {
 
 		Assert.assertEquals(
 				"Successfully fetched a multiple authors from the table author",
@@ -34,7 +36,7 @@ public class JUnitTestAuthor {
 	}
 
 	@Test
-	public void TestUpdateAuthor() {
+	public void TestUpdateAuthor() throws SQLException {
 		author = DAO.getAuthor(3);
 		author.setName("Lav Tolstoj");
 		System.out.println(author.getName());
@@ -44,7 +46,7 @@ public class JUnitTestAuthor {
 	}
 
 	@Test
-	public void TestDeleteAuthor() {
+	public void TestDeleteAuthor() throws SQLException {
 		author = DAO.getAuthor(3);
 		System.out.println(author.getName());
 		Assert.assertEquals(
@@ -53,7 +55,7 @@ public class JUnitTestAuthor {
 	}
 
 	@Test
-	public void TestInsertAuthor() {
+	public void TestInsertAuthor() throws SQLException {
 		author = new Author();
 		author.setId(8);
 		author.setName("Jovan Ducic");
@@ -63,7 +65,7 @@ public class JUnitTestAuthor {
 	}
 
 	@Test
-	public void TestCRUDAuthor() {
+	public void TestCRUDAuthor() throws SQLException {
 		// inserting the author
 		author = new Author();
 		author.setId(11);
