@@ -1,14 +1,10 @@
 package DAO;
 
-import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Formatter;
 
 import Other.EncryptString;
 import pkg.Client;
@@ -17,7 +13,7 @@ import interfaces.IClientDAO;
 public class ClientDAO implements IClientDAO {
 
 	@Override
-	public Client getClient(int id) {
+	public Client getClient(int id) throws SQLException {
 		Client client = null;
 		DBConnection conn = new DBConnection();
 		Connection connection = conn.getConnection();
@@ -37,16 +33,19 @@ public class ClientDAO implements IClientDAO {
 				client.setPassword(resultSet.getString(5));
 
 			}
-			connection.close();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			connection.close();
+			System.out.println("finally block executed");
+
 		}
 		return client;
 	}
 
 	@Override
-	public ArrayList<Client> getAllClients() {
+	public ArrayList<Client> getAllClients() throws SQLException {
 		DBConnection conn = new DBConnection();
 		Connection connection = conn.getConnection();
 		ArrayList<Client> list = new ArrayList<Client>();
@@ -66,17 +65,21 @@ public class ClientDAO implements IClientDAO {
 
 				list.add(client);
 			}
-			connection.close();
 
 		} catch (SQLException ex) {
 			ex.printStackTrace();
+		} finally {
+			connection.close();
+			System.out.println("finally block executed");
+
 		}
 		return list;
 
 	}
 
 	@Override
-	public boolean insertClient(Client client) throws ClassNotFoundException {
+	public boolean insertClient(Client client) throws ClassNotFoundException,
+			SQLException {
 		DBConnection conn = new DBConnection();
 		Connection connection = conn.getConnection();
 		EncryptString encrypt = new EncryptString();
@@ -96,17 +99,21 @@ public class ClientDAO implements IClientDAO {
 
 				return true;
 			}
-			connection.close();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			connection.close();
+			System.out.println("finally block executed");
+
 		}
 
 		return false;
 	}
 
 	@Override
-	public boolean updateClient(Client client) throws ClassNotFoundException {
+	public boolean updateClient(Client client) throws ClassNotFoundException,
+			SQLException {
 		DBConnection conn = new DBConnection();
 		Connection connection = conn.getConnection();
 		EncryptString encrypt = new EncryptString();
@@ -123,16 +130,20 @@ public class ClientDAO implements IClientDAO {
 			if (i == 1) {
 				return true;
 			}
-			connection.close();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			connection.close();
+			System.out.println("finally block executed");
+
 		}
 		return false;
 	}
 
 	@Override
-	public boolean deleteClient(int id) throws ClassNotFoundException {
+	public boolean deleteClient(int id) throws ClassNotFoundException,
+			SQLException {
 		DBConnection conn = new DBConnection();
 		Connection connection = conn.getConnection();
 
@@ -144,15 +155,19 @@ public class ClientDAO implements IClientDAO {
 			if (i == 1) {
 				return true;
 			}
-			connection.close();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			connection.close();
+			System.out.println("finally block executed");
+
 		}
 		return false;
 	}
 
-	public static void main(String[] args) throws ClassNotFoundException {
+	public static void main(String[] args) throws ClassNotFoundException,
+			SQLException {
 		ClientDAO dao = new ClientDAO();
 
 		Client c = new Client();
@@ -166,15 +181,14 @@ public class ClientDAO implements IClientDAO {
 		System.out.println(dao.getClient(20));
 
 		Client c1 = new Client("janko", "Jankovic", "proba", "proba1234");
-		
-		Client c2 = new Client(20,"Manko", "Jankovic", "proba", "proba1234");
 
+		Client c2 = new Client(20, "Manko", "Jankovic", "proba", "proba1234");
 
 		// dao.insertClient(c1);
 
 		// System.out.println(dao.getAllClients());
-		
-		//dao.updateClient(c2);
+
+		// dao.updateClient(c2);
 	}
 
 }

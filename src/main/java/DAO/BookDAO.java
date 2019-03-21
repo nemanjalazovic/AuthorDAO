@@ -13,7 +13,7 @@ import pkg.Book;
 
 public class BookDAO implements IBookDAO {
 	@Override
-	public ArrayList<Book> getAllBooks() {
+	public ArrayList<Book> getAllBooks() throws SQLException {
 		DBConnection conn = new DBConnection();
 		Connection connection = conn.getConnection();
 		ArrayList<Book> list = new ArrayList<Book>();
@@ -33,17 +33,20 @@ public class BookDAO implements IBookDAO {
 
 				list.add(book);
 			}
-			connection.close();
-			return list;
 
 		} catch (SQLException ex) {
 			ex.printStackTrace();
+		} finally {
+			connection.close();
+			System.out.println("finally block executed");
+
 		}
-		return null;
+		
+		return list;
 	}
 
 	@Override
-	public Book getBook(int id) {
+	public Book getBook(int id) throws SQLException {
 		DBConnection conn = new DBConnection();
 		Connection connection = conn.getConnection();
 		try {
@@ -60,16 +63,20 @@ public class BookDAO implements IBookDAO {
 
 				return book;
 			}
-			connection.close();
 
 		} catch (SQLException ex) {
 			ex.printStackTrace();
+		}
+		finally {
+			connection.close();
+			System.out.println("finally block executed");
+
 		}
 		return null;
 	}
 
 	@Override
-	public boolean insertBook(Author author, Book book) {
+	public boolean insertBook(Author author, Book book) throws SQLException {
 		DBConnection conn = new DBConnection();
 		Connection connection = conn.getConnection();
 
@@ -84,16 +91,19 @@ public class BookDAO implements IBookDAO {
 			if (i == 1) {
 				return true;
 			}
-			connection.close();
 
 		} catch (SQLException ex) {
 			ex.printStackTrace();
+		}finally {
+			connection.close();
+			System.out.println("finally block executed");
+
 		}
 		return false;
 	}
 
 	@Override
-	public boolean updateBook(Book book) {
+	public boolean updateBook(Book book) throws SQLException {
 		DBConnection conn = new DBConnection();
 		Connection connection = conn.getConnection();
 
@@ -107,16 +117,19 @@ public class BookDAO implements IBookDAO {
 			if (i == 1) {
 				return true;
 			}
-			connection.close();
 
 		} catch (SQLException ex) {
 			ex.printStackTrace();
+		}finally {
+			connection.close();
+			System.out.println("finally block executed");
+
 		}
 		return false;
 	}
 
 	@Override
-	public boolean deleteBook(int id) {
+	public boolean deleteBook(int id) throws SQLException {
 		DBConnection conn = new DBConnection();
 		Connection connection = conn.getConnection();
 
@@ -127,20 +140,23 @@ public class BookDAO implements IBookDAO {
 			if (i == 1) {
 				return true;
 			}
-			connection.close();
 
 		} catch (SQLException ex) {
 			ex.printStackTrace();
+		}finally {
+			connection.close();
+			System.out.println("finally block executed");
+
 		}
 		return false;
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		BookDAO daoBook = new BookDAO();
 		AuthorDAO daoAuthor = new AuthorDAO();
 
 		// System.out.println(daoBook.getBook(3));
-		// System.out.println(daoBook.getAllBooks());
+		 System.out.println(daoBook.getAllBooks());
 
 		Author a = daoAuthor.getAuthor(6);
 		// daoBook.insertBook(a,b);

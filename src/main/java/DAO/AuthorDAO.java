@@ -5,11 +5,9 @@ import interfaces.IAuthorDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Formatter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -18,7 +16,7 @@ import pkg.Author;
 public class AuthorDAO implements IAuthorDAO {
 
 	@Override
-	public Author getAuthor(int id) {
+	public Author getAuthor(int id) throws SQLException {
 		DBConnection conn = new DBConnection();
 		Connection connection = conn.getConnection();
 		try {
@@ -32,16 +30,19 @@ public class AuthorDAO implements IAuthorDAO {
 				author.setName(rs.getString("name"));
 				return author;
 			}
-			connection.close();
 
 		} catch (SQLException ex) {
 			ex.printStackTrace();
+		} finally {
+			connection.close();
+			System.out.println("finally block executed");
+
 		}
 		return null;
 	}
 
 	@Override
-	public ArrayList<Author> getAllAuthors() {
+	public ArrayList<Author> getAllAuthors() throws SQLException {
 		DBConnection conn = new DBConnection();
 		Connection connection = conn.getConnection();
 		ArrayList<Author> list = new ArrayList<Author>();
@@ -58,20 +59,21 @@ public class AuthorDAO implements IAuthorDAO {
 				author.setName(rs.getString("name"));
 				list.add(author);
 			}
-			connection.close();
-
-			return list;
 
 		}
 
 		catch (SQLException ex) {
 			ex.printStackTrace();
+		} finally {
+			connection.close();
+			System.out.println("finally block executed");
+
 		}
-		return null;
+		return list;
 	}
 
 	@Override
-	public boolean insertAuthor(Author author) {
+	public boolean insertAuthor(Author author) throws SQLException {
 		DBConnection conn = new DBConnection();
 		Connection connection = conn.getConnection();
 		try {
@@ -84,16 +86,19 @@ public class AuthorDAO implements IAuthorDAO {
 			if (i == 1) {
 				return true;
 			}
-			connection.close();
 
 		} catch (SQLException ex) {
 			ex.printStackTrace();
+		} finally {
+			connection.close();
+			System.out.println("finally block executed");
+
 		}
 		return false;
 	}
 
 	@Override
-	public boolean updateAuthor(Author author) {
+	public boolean updateAuthor(Author author) throws SQLException {
 		DBConnection conn = new DBConnection();
 		Connection connection = conn.getConnection();
 		try {
@@ -106,16 +111,19 @@ public class AuthorDAO implements IAuthorDAO {
 			if (i == 1) {
 				return true;
 			}
-			connection.close();
 
 		} catch (SQLException ex) {
 			ex.printStackTrace();
+		} finally {
+			connection.close();
+			System.out.println("finally block executed");
+
 		}
 		return false;
 	}
 
 	@Override
-	public boolean deleteAuthor(int id) {
+	public boolean deleteAuthor(int id) throws SQLException {
 		DBConnection conn = new DBConnection();
 		Connection connection = conn.getConnection();
 		try {
@@ -125,10 +133,13 @@ public class AuthorDAO implements IAuthorDAO {
 			if (i == 1) {
 				return true;
 			}
-			connection.close();
 
 		} catch (SQLException ex) {
 			ex.printStackTrace();
+		} finally {
+			connection.close();
+			System.out.println("finally block executed");
+
 		}
 		return false;
 	}
@@ -144,13 +155,16 @@ public class AuthorDAO implements IAuthorDAO {
 			if (rs.next()) {
 				System.out.println(rs.getString(1));
 			}
-			connection.close();
 
 		} catch (SQLException ex) {
 
 			Logger lgr = Logger.getLogger(AuthorDAO.class.getName());
 			lgr.log(Level.SEVERE, ex.getMessage(), ex);
 			System.out.println("error");
+		} finally {
+			connection.close();
+			System.out.println("finally block executed");
+
 		}
 		return null;
 	}
@@ -158,7 +172,7 @@ public class AuthorDAO implements IAuthorDAO {
 	public static void main(String[] args) throws SQLException {
 		AuthorDAO dao = new AuthorDAO();
 
-		 System.out.println(dao.getAuthor(18));
+		System.out.println(dao.getAuthor(18));
 		// System.out.println(dao.getAllAuthors());
 
 		Author a1 = new Author(8, "Mark Tven");
@@ -171,7 +185,7 @@ public class AuthorDAO implements IAuthorDAO {
 
 		// dao.GetVersion();
 
-		// System.out.println(dao.getAllAuthors());
+		 System.out.println(dao.getAllAuthors());
 
 	}
 
