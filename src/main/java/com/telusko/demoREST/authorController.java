@@ -4,6 +4,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.SwaggerDefinition;
 import io.swagger.annotations.Tag;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.ws.rs.Consumes;
@@ -42,27 +43,27 @@ public class authorController {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public ArrayList<Author> getAllAuthors() {
+	public ArrayList<Author> getAllAuthors() throws SQLException {
 		return dao.getAllAuthors();
 	}
 
 	@GET
 	@Path("/{authorID}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Author getAuthor(@PathParam("authorID") int id) {
+	public Author getAuthor(@PathParam("authorID") int id) throws SQLException {
 		return dao.getAuthor(id);
 	}
 
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-	public boolean addAuthor(Author author) {
+	public boolean addAuthor(Author author) throws SQLException {
 		return dao.insertAuthor(author);
 	}
 
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/{authorID}")
-	public boolean updateAuthor(@PathParam("authorID") int id, Author author) {
+	public boolean updateAuthor(@PathParam("authorID") int id, Author author) throws SQLException {
 		author.setId(id);
 		return dao.updateAuthor(author);
 	}
@@ -70,7 +71,7 @@ public class authorController {
 	@DELETE
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/{authorID}")
-	public boolean deleteAuthor(@PathParam("authorID") int id) {
+	public boolean deleteAuthor(@PathParam("authorID") int id) throws SQLException {
 		return dao.deleteAuthor(id);
 	}
 

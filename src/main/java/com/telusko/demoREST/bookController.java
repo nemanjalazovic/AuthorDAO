@@ -4,6 +4,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.SwaggerDefinition;
 import io.swagger.annotations.Tag;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.ws.rs.Consumes;
@@ -38,14 +39,14 @@ public class bookController {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public ArrayList<Book> getAllBooks() {
+	public ArrayList<Book> getAllBooks() throws SQLException {
 		return dao.getAllBooks();
 	}
 
 	@GET
 	@Path("/{bookID}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Book getBook(@PathParam("bookID") int id) {
+	public Book getBook(@PathParam("bookID") int id) throws SQLException {
 		return dao.getBook(id);
 	}
 
@@ -58,7 +59,7 @@ public class bookController {
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/{bookID}")
-	public boolean updateBook(@PathParam("bookID") int id, Book book) {
+	public boolean updateBook(@PathParam("bookID") int id, Book book) throws SQLException {
 		book.setId(id);
 		return dao.updateBook(book);
 	}
@@ -66,7 +67,7 @@ public class bookController {
 	@DELETE
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/{bookID}")
-	public boolean deleteBook(@PathParam("bookID") int id) {
+	public boolean deleteBook(@PathParam("bookID") int id) throws SQLException {
 		return dao.deleteBook(id);
 	}
 
