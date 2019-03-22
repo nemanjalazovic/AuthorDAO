@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import Other.EncryptString;
 import pkg.Client;
+import pkg.LoginUser;
 import interfaces.IClientDAO;
 
 public class ClientDAO implements IClientDAO {
@@ -166,6 +167,50 @@ public class ClientDAO implements IClientDAO {
 		return false;
 	}
 
+	public Client Login(LoginUser log) throws ClassNotFoundException,
+			SQLException {
+		Client client = new Client();
+
+		DBConnection conn = new DBConnection();
+		Connection connection = conn.getConnection();
+
+		EncryptString encrypt = new EncryptString();
+		String password = encrypt.encryptPassword(log.getPassword());
+
+		try {
+			PreparedStatement pst = connection
+					.prepareStatement("select * from clients where username=?");
+			pst.setString(1, log.getUsername());
+			pst.execute();
+			ResultSet rs = pst.getResultSet();
+			if (rs.next()) {
+				client.setId_client(rs.getInt(1));
+				client.setName(rs.getString(2));
+				client.setSurname(rs.getString(3));
+				client.setUsername(rs.getString(4));
+				client.setPassword(rs.getString(5));
+			}
+			String userPassword = client.getPassword();
+			if (userPassword.equals(password)) {
+				client.setPassword(userPassword);
+				System.out.println("Successful login");
+				return client;
+
+			} else {
+				System.out.println("Wrong username or password!");
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			connection.close();
+			System.out.println("finally block executed");
+
+		}
+
+		return null;
+	}
+
 	public static void main(String[] args) throws ClassNotFoundException,
 			SQLException {
 		ClientDAO dao = new ClientDAO();
@@ -178,7 +223,7 @@ public class ClientDAO implements IClientDAO {
 
 		// dao.insertClient(c);
 
-		System.out.println(dao.getClient(20));
+		// System.out.println(dao.getClient(20));
 
 		Client c1 = new Client("janko", "Jankovic", "proba", "proba1234");
 
@@ -189,6 +234,11 @@ public class ClientDAO implements IClientDAO {
 		// System.out.println(dao.getAllClients());
 
 		// dao.updateClient(c2);
+		LoginUser user = new LoginUser();
+		user.setUsername("proba");
+		user.setPassword("proba1234");
+		dao.Login(user);
+
 	}
 
 }

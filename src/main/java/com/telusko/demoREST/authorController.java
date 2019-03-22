@@ -63,7 +63,8 @@ public class authorController {
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/{authorID}")
-	public boolean updateAuthor(@PathParam("authorID") int id, Author author) throws SQLException {
+	public boolean updateAuthor(@PathParam("authorID") int id, Author author)
+			throws SQLException {
 		author.setId(id);
 		return dao.updateAuthor(author);
 	}
@@ -71,7 +72,8 @@ public class authorController {
 	@DELETE
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/{authorID}")
-	public boolean deleteAuthor(@PathParam("authorID") int id) throws SQLException {
+	public boolean deleteAuthor(@PathParam("authorID") int id)
+			throws SQLException {
 		return dao.deleteAuthor(id);
 	}
 

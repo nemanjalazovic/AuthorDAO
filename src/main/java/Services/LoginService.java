@@ -18,11 +18,12 @@ public class LoginService {
 		String jwt = "";
 		if (client.getUsername() != "") {
 			Long time = System.currentTimeMillis();
-			jwt = Jwts.builder().claim("id", client.getId_client())
+			jwt = Jwts.builder()
+					.claim("id", client.getId_client())
 					.setSubject(String.valueOf(client.getId_client()))
 					.claim("name", client.getName())
 					.claim("surname", client.getSurname())
-					//.claim("role", klijent.getRole())
+					// .claim("role", klijent.getRole())
 					.setExpiration(new Date(time + 90000))
 					.signWith(SignatureAlgorithm.HS256, "password".getBytes())
 					.compact();

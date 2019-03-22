@@ -10,10 +10,13 @@ public interface IClientDAO {
 
 	public ArrayList<Client> getAllClients() throws SQLException;
 
-	public boolean insertClient(Client client) throws ClassNotFoundException, SQLException;
+	public boolean insertClient(Client client) throws ClassNotFoundException,
+			SQLException;
 
-	public boolean updateClient(Client client) throws ClassNotFoundException, SQLException;
+	public boolean updateClient(Client client) throws ClassNotFoundException,
+			SQLException;
 
-	public boolean deleteClient(int id) throws ClassNotFoundException, SQLException;
+	public boolean deleteClient(int id) throws ClassNotFoundException,
+			SQLException;
 
 }

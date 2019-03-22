@@ -50,16 +50,18 @@ public class bookController {
 		return dao.getBook(id);
 	}
 
-	/*@POST
-	@Consumes(MediaType.APPLICATION_JSON)
-	public boolean addBook(Author author, Book book) {
-		return dao.insertBook(author, book);
-	}*/
+	/*
+	 * @POST
+	 * 
+	 * @Consumes(MediaType.APPLICATION_JSON) public boolean addBook(Author
+	 * author, Book book) { return dao.insertBook(author, book); }
+	 */
 
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/{bookID}")
-	public boolean updateBook(@PathParam("bookID") int id, Book book) throws SQLException {
+	public boolean updateBook(@PathParam("bookID") int id, Book book)
+			throws SQLException {
 		book.setId(id);
 		return dao.updateBook(book);
 	}

@@ -13,8 +13,7 @@ import DAO.AuthorDAO;
 import DAO.DBConnection;
 
 public class OtherMethodsDAO {
-	
-	
+
 	public void writeMultipleRows(String query) throws SQLException {
 		DBConnection conn = new DBConnection();
 		Connection connection = conn.getConnection();
@@ -43,7 +42,6 @@ public class OtherMethodsDAO {
 
 	}
 
-	
 	public void writeMetaData(String query) throws SQLException {
 		DBConnection conn = new DBConnection();
 		Connection connection = conn.getConnection();
@@ -75,21 +73,19 @@ public class OtherMethodsDAO {
 		}
 
 	}
-	
-	public static void main() throws SQLException{
-		
+
+	public static void main() throws SQLException {
+
 		OtherMethodsDAO dao = new OtherMethodsDAO();
 
-		
 		String query1 = "SELECT id, name FROM authors where id=1;"
 				+ "SELECT id, name FROM authors Where id=2;"
 				+ "SELECT id, name FROM authors WHERE id=3";
-		 dao.writeMultipleRows(query1);
+		dao.writeMultipleRows(query1);
 
 		String query2 = "SELECT name, title FROM authors, books WHERE authors.id= books.id";
-		 dao.writeMetaData(query2);
+		dao.writeMetaData(query2);
 
-		
 	}
 
 }

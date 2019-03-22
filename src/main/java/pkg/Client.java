@@ -51,7 +51,6 @@ public class Client {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
 
 	public Client(int id_client, String name, String surname, String username,
 			String password) {

@@ -185,7 +185,7 @@ public class AuthorDAO implements IAuthorDAO {
 
 		// dao.GetVersion();
 
-		 System.out.println(dao.getAllAuthors());
+		System.out.println(dao.getAllAuthors());
 
 	}
 

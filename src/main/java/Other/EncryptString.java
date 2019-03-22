@@ -7,7 +7,7 @@ import java.util.Formatter;
 
 public class EncryptString {
 
-	public  String encryptPassword(String password) {
+	public String encryptPassword(String password) {
 		String sha1 = "";
 		try {
 			MessageDigest crypt = MessageDigest.getInstance("SHA-1");
@@ -22,7 +22,7 @@ public class EncryptString {
 		return sha1;
 	}
 
-	public  String byteToHex(final byte[] hash) {
+	public String byteToHex(final byte[] hash) {
 		Formatter formatter = new Formatter();
 		for (byte b : hash) {
 			formatter.format("%02x", b);
@@ -34,9 +34,9 @@ public class EncryptString {
 
 	public static void main(String[] args) {
 		EncryptString enc = new EncryptString();
-		String password ="sifra";
+		String password = "sifra";
 		System.out.println(enc.encryptPassword(password));
-		String password2 ="sifra";
+		String password2 = "sifra";
 		System.out.println(enc.encryptPassword(password2));
 
 	}

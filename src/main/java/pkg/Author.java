@@ -1,10 +1,6 @@
 package pkg;
 
-
 import javax.xml.bind.annotation.XmlRootElement;
-
-@XmlRootElement
-//@ApiModel("Author bean")
 
 public class Author {
 	private int id;

@@ -65,8 +65,8 @@ public class JUnitTestBook {
 		author.setId(19);
 		book.setTitle("testInsert");
 		Assert.assertEquals(
-				"Successfully insert a single book from the table books",
-				true, DAO.insertBook(author, book));
+				"Successfully insert a single book from the table books", true,
+				DAO.insertBook(author, book));
 	}
 
 }

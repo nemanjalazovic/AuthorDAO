@@ -41,7 +41,7 @@ public class BookDAO implements IBookDAO {
 			System.out.println("finally block executed");
 
 		}
-		
+
 		return list;
 	}
 
@@ -66,8 +66,7 @@ public class BookDAO implements IBookDAO {
 
 		} catch (SQLException ex) {
 			ex.printStackTrace();
-		}
-		finally {
+		} finally {
 			connection.close();
 			System.out.println("finally block executed");
 
@@ -94,7 +93,7 @@ public class BookDAO implements IBookDAO {
 
 		} catch (SQLException ex) {
 			ex.printStackTrace();
-		}finally {
+		} finally {
 			connection.close();
 			System.out.println("finally block executed");
 
@@ -120,7 +119,7 @@ public class BookDAO implements IBookDAO {
 
 		} catch (SQLException ex) {
 			ex.printStackTrace();
-		}finally {
+		} finally {
 			connection.close();
 			System.out.println("finally block executed");
 
@@ -143,7 +142,7 @@ public class BookDAO implements IBookDAO {
 
 		} catch (SQLException ex) {
 			ex.printStackTrace();
-		}finally {
+		} finally {
 			connection.close();
 			System.out.println("finally block executed");
 
@@ -156,7 +155,7 @@ public class BookDAO implements IBookDAO {
 		AuthorDAO daoAuthor = new AuthorDAO();
 
 		// System.out.println(daoBook.getBook(3));
-		 System.out.println(daoBook.getAllBooks());
+		System.out.println(daoBook.getAllBooks());
 
 		Author a = daoAuthor.getAuthor(6);
 		// daoBook.insertBook(a,b);
