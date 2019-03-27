@@ -9,14 +9,14 @@
 		<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
 		<init-param>
 			<param-name>jersey.config.server.provider.packages</param-name>
-			<param-value>io.swagger.jaxrs.listing, com.telusko.demoREST</param-value>
+			<param-value>io.swagger.jaxrs.listing, com.lazovic.demorest</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	
 	<servlet>
 		<servlet-name>Swagger Configuration</servlet-name>
-		<servlet-class>Servlet.SwaggerConfigurationServlet</servlet-class>
+		<servlet-class>com.lazovic.demorset.servlet.SwaggerConfigurationServlet</servlet-class>
 		<load-on-startup>2</load-on-startup>
 	</servlet>
 	
