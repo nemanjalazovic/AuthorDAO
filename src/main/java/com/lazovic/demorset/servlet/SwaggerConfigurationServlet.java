@@ -17,7 +17,7 @@ public class SwaggerConfigurationServlet extends HttpServlet {
 		beanConfig.setBasePath("/demoREST/webapi/");
 		beanConfig.setHost("localhost:8080");
 		beanConfig.setTitle("Authors/Books app Swagger Docs");
-		beanConfig.setResourcePackage("com.lazovic.demorest.contorller");
+		beanConfig.setResourcePackage("com.lazovic.demorest.controller");
 		beanConfig.setPrettyPrint(true);
 		beanConfig.setScan(true);
 		beanConfig.setSchemes(new String[] { "http" });

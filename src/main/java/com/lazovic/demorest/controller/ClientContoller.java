@@ -1,4 +1,4 @@
-package com.lazovic.demorest.contorller;
+package com.lazovic.demorest.controller;
 
 import java.net.URI;
 import java.sql.SQLException;
@@ -8,7 +8,6 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.SwaggerDefinition;
 import io.swagger.annotations.Tag;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.core.Response;
@@ -26,6 +25,7 @@ import javax.ws.rs.core.UriInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.lazovic.demorest.annotation.JWTSecured;
 import com.lazovic.demorest.dao.ClientDAO;
 import com.lazovic.demorest.model.Client;
 import com.lazovic.demorest.model.LoginUser;
@@ -49,7 +49,7 @@ public class ClientContoller {
 	}
 
 	@GET
-	//@Secured
+	@JWTSecured	
 	@Path("/{clientID}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getClient(@PathParam("clientID") int id, @Context UriInfo uriInfo) throws SQLException {

@@ -1,4 +1,4 @@
-package com.lazovic.demorest.contorller;
+package com.lazovic.demorest.controller;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

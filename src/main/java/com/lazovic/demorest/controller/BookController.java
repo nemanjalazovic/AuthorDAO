@@ -1,4 +1,4 @@
-package com.lazovic.demorest.contorller;
+package com.lazovic.demorest.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.SwaggerDefinition;

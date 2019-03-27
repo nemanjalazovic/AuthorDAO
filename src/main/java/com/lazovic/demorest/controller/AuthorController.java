@@ -1,4 +1,4 @@
-package com.lazovic.demorest.contorller;
+package com.lazovic.demorest.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.SwaggerDefinition;
@@ -20,6 +20,7 @@ import javax.ws.rs.core.MediaType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.lazovic.demorest.annotation.JWTSecured;
 import com.lazovic.demorest.dao.AuthorDAO;
 import com.lazovic.demorest.model.Author;
 
@@ -42,6 +43,7 @@ public class AuthorController {
 	 */
 
 	@GET
+	@JWTSecured
 	@Produces(MediaType.APPLICATION_JSON)
 	public ArrayList<Author> getAllAuthors() throws SQLException {
 		return dao.getAllAuthors();
