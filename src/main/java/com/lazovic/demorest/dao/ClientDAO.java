@@ -6,12 +6,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import org.apache.log4j.Logger;
+
 import com.lazovic.demorest.interfaces.IClientDAO;
 import com.lazovic.demorest.model.Client;
 import com.lazovic.demorest.model.LoginUser;
 import com.lazovic.demorest.others.EncryptString;
 
 public class ClientDAO implements IClientDAO {
+
+	private final Logger logger = Logger.getLogger(this.getClass());
 
 	@Override
 	public Client getClient(int id) throws SQLException {
@@ -35,8 +39,8 @@ public class ClientDAO implements IClientDAO {
 
 			}
 
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (SQLException ex) {
+			logger.info("Unsuccessful db connection", ex);
 		} finally {
 			connection.close();
 			System.out.println("finally block executed");
@@ -68,7 +72,7 @@ public class ClientDAO implements IClientDAO {
 			}
 
 		} catch (SQLException ex) {
-			ex.printStackTrace();
+			logger.info("Unsuccessful db connection", ex);
 		} finally {
 			connection.close();
 			System.out.println("finally block executed");
@@ -101,8 +105,8 @@ public class ClientDAO implements IClientDAO {
 				return true;
 			}
 
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (SQLException ex) {
+			logger.info("Unsuccessful db connection", ex);
 		} finally {
 			connection.close();
 			System.out.println("finally block executed");
@@ -132,8 +136,8 @@ public class ClientDAO implements IClientDAO {
 				return true;
 			}
 
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (SQLException ex) {
+			logger.info("Unsuccessful db connection", ex);
 		} finally {
 			connection.close();
 			System.out.println("finally block executed");
@@ -157,8 +161,8 @@ public class ClientDAO implements IClientDAO {
 				return true;
 			}
 
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (SQLException ex) {
+			logger.info("Unsuccessful db connection", ex);
 		} finally {
 			connection.close();
 			System.out.println("finally block executed");
@@ -200,8 +204,8 @@ public class ClientDAO implements IClientDAO {
 				System.out.println("Wrong username or password!");
 
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (SQLException ex) {
+			logger.info("Unsuccessful db connection", ex);
 		} finally {
 			connection.close();
 			System.out.println("finally block executed");

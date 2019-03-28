@@ -5,7 +5,10 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Formatter;
 
+import org.apache.log4j.Logger;
+
 public class EncryptString {
+	private final Logger logger = Logger.getLogger(this.getClass());
 
 	public String encryptPassword(String password) {
 		String sha1 = "";
@@ -15,9 +18,9 @@ public class EncryptString {
 			crypt.update(password.getBytes("UTF-8"));
 			sha1 = byteToHex(crypt.digest());
 		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
+			logger.info("No Such Algorithm Exception", e);
 		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
+			logger.info("UUnsupported Encoding Exception", e);
 		}
 		return sha1;
 	}

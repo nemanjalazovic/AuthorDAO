@@ -6,11 +6,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import org.apache.log4j.Logger;
+
 import com.lazovic.demorest.interfaces.IBookDAO;
 import com.lazovic.demorest.model.Author;
 import com.lazovic.demorest.model.Book;
 
 public class BookDAO implements IBookDAO {
+	private final Logger logger = Logger.getLogger(this.getClass());
+
 	@Override
 	public ArrayList<Book> getAllBooks() throws SQLException {
 		DBConnection conn = new DBConnection();
@@ -34,7 +38,7 @@ public class BookDAO implements IBookDAO {
 			}
 
 		} catch (SQLException ex) {
-			ex.printStackTrace();
+			logger.info("Unsuccessful db connection", ex);
 		} finally {
 			connection.close();
 			System.out.println("finally block executed");
@@ -64,7 +68,7 @@ public class BookDAO implements IBookDAO {
 			}
 
 		} catch (SQLException ex) {
-			ex.printStackTrace();
+			logger.info("Unsuccessful db connection", ex);
 		} finally {
 			connection.close();
 			System.out.println("finally block executed");
@@ -91,7 +95,7 @@ public class BookDAO implements IBookDAO {
 			}
 
 		} catch (SQLException ex) {
-			ex.printStackTrace();
+			logger.info("Unsuccessful db connection", ex);
 		} finally {
 			connection.close();
 			System.out.println("finally block executed");
@@ -117,7 +121,7 @@ public class BookDAO implements IBookDAO {
 			}
 
 		} catch (SQLException ex) {
-			ex.printStackTrace();
+			logger.info("Unsuccessful db connection", ex);
 		} finally {
 			connection.close();
 			System.out.println("finally block executed");
@@ -140,7 +144,7 @@ public class BookDAO implements IBookDAO {
 			}
 
 		} catch (SQLException ex) {
-			ex.printStackTrace();
+			logger.info("Unsuccessful db connection", ex);
 		} finally {
 			connection.close();
 			System.out.println("finally block executed");

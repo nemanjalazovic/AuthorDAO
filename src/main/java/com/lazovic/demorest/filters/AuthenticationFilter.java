@@ -13,6 +13,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import javax.ws.rs.ext.Provider;
 
+import org.apache.log4j.Logger;
 import org.jose4j.jwt.JwtClaims;
 import org.jose4j.jwt.MalformedClaimException;
 import org.jose4j.jwt.NumericDate;
@@ -27,6 +28,7 @@ import com.lazovic.demorest.annotation.JWTSecured;
 @Provider
 @Priority(Priorities.AUTHENTICATION)
 public class AuthenticationFilter implements ContainerRequestFilter {
+	private final Logger logger = Logger.getLogger(this.getClass());
 
 	@Override
 	public void filter(ContainerRequestContext requestContext)
@@ -113,7 +115,8 @@ public class AuthenticationFilter implements ContainerRequestFilter {
 			username = (String) jwtClaims.getClaimValue("sub");
 			System.out.println("JWT validation succeeded!");
 		} catch (MalformedClaimException e) {
-			e.printStackTrace();
+			logger.info("JWT validation failed", e);
+
 		}
 		return username;
 	}
