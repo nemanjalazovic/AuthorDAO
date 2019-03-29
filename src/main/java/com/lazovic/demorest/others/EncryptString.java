@@ -18,9 +18,9 @@ public class EncryptString {
 			crypt.update(password.getBytes("UTF-8"));
 			sha1 = byteToHex(crypt.digest());
 		} catch (NoSuchAlgorithmException e) {
-			logger.info("No Such Algorithm Exception", e);
+			logger.error("No Such Algorithm Exception", e);
 		} catch (UnsupportedEncodingException e) {
-			logger.info("UUnsupported Encoding Exception", e);
+			logger.error("UUnsupported Encoding Exception", e);
 		}
 		return sha1;
 	}

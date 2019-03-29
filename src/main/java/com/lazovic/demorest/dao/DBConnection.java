@@ -55,6 +55,9 @@ public class DBConnection {
 			if (resultSet != null) {
 				resultSet.close();
 			}
+			if (preparedStatement != null) {
+				resultSet.close();
+			}
 
 			if (connect != null) {
 				connect.close();

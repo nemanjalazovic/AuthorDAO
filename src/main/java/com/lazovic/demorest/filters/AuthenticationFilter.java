@@ -115,7 +115,7 @@ public class AuthenticationFilter implements ContainerRequestFilter {
 			username = (String) jwtClaims.getClaimValue("sub");
 			System.out.println("JWT validation succeeded!");
 		} catch (MalformedClaimException e) {
-			logger.info("JWT validation failed", e);
+			logger.error("JWT validation failed", e);
 
 		}
 		return username;

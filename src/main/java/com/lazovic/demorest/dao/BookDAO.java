@@ -38,7 +38,7 @@ public class BookDAO implements IBookDAO {
 			}
 
 		} catch (SQLException ex) {
-			logger.info("Unsuccessful db connection", ex);
+			logger.error("Unsuccessful db connection", ex);
 		} finally {
 			connection.close();
 			System.out.println("finally block executed");
@@ -68,7 +68,7 @@ public class BookDAO implements IBookDAO {
 			}
 
 		} catch (SQLException ex) {
-			logger.info("Unsuccessful db connection", ex);
+			logger.error("Unsuccessful db connection", ex);
 		} finally {
 			connection.close();
 			System.out.println("finally block executed");
@@ -95,7 +95,7 @@ public class BookDAO implements IBookDAO {
 			}
 
 		} catch (SQLException ex) {
-			logger.info("Unsuccessful db connection", ex);
+			logger.error("Unsuccessful db connection", ex);
 		} finally {
 			connection.close();
 			System.out.println("finally block executed");
@@ -121,7 +121,7 @@ public class BookDAO implements IBookDAO {
 			}
 
 		} catch (SQLException ex) {
-			logger.info("Unsuccessful db connection", ex);
+			logger.error("Unsuccessful db connection", ex);
 		} finally {
 			connection.close();
 			System.out.println("finally block executed");
@@ -144,7 +144,7 @@ public class BookDAO implements IBookDAO {
 			}
 
 		} catch (SQLException ex) {
-			logger.info("Unsuccessful db connection", ex);
+			logger.error("Unsuccessful db connection", ex);
 		} finally {
 			connection.close();
 			System.out.println("finally block executed");

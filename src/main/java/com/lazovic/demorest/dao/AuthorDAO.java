@@ -7,12 +7,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import org.apache.log4j.Logger;
 
 import com.lazovic.demorest.interfaces.IAuthorDAO;
 import com.lazovic.demorest.model.Author;
 
 public class AuthorDAO implements IAuthorDAO {
+	private final Logger logger = Logger.getLogger(this.getClass());
 
 	@Override
 	public Author getAuthor(int id) throws SQLException {
@@ -31,7 +33,7 @@ public class AuthorDAO implements IAuthorDAO {
 			}
 
 		} catch (SQLException ex) {
-			ex.printStackTrace();
+			logger.error("Unsuccessful db connection", ex);
 		} finally {
 			connection.close();
 			System.out.println("finally block executed");
@@ -62,7 +64,7 @@ public class AuthorDAO implements IAuthorDAO {
 		}
 
 		catch (SQLException ex) {
-			ex.printStackTrace();
+			logger.error("Unsuccessful db connection", ex);
 		} finally {
 			connection.close();
 			System.out.println("finally block executed");
@@ -87,7 +89,7 @@ public class AuthorDAO implements IAuthorDAO {
 			}
 
 		} catch (SQLException ex) {
-			ex.printStackTrace();
+			logger.error("Unsuccessful db connection", ex);
 		} finally {
 			connection.close();
 			System.out.println("finally block executed");
@@ -112,7 +114,7 @@ public class AuthorDAO implements IAuthorDAO {
 			}
 
 		} catch (SQLException ex) {
-			ex.printStackTrace();
+			logger.error("Unsuccessful db connection", ex);
 		} finally {
 			connection.close();
 			System.out.println("finally block executed");
@@ -134,7 +136,7 @@ public class AuthorDAO implements IAuthorDAO {
 			}
 
 		} catch (SQLException ex) {
-			ex.printStackTrace();
+			logger.error("Unsuccessful db connection", ex);
 		} finally {
 			connection.close();
 			System.out.println("finally block executed");
@@ -157,9 +159,7 @@ public class AuthorDAO implements IAuthorDAO {
 
 		} catch (SQLException ex) {
 
-			Logger lgr = Logger.getLogger(AuthorDAO.class.getName());
-			lgr.log(Level.SEVERE, ex.getMessage(), ex);
-			System.out.println("error");
+			logger.error("Unsuccessful db connection", ex);
 		} finally {
 			connection.close();
 			System.out.println("finally block executed");

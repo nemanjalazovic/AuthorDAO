@@ -40,7 +40,7 @@ public class ClientDAO implements IClientDAO {
 			}
 
 		} catch (SQLException ex) {
-			logger.info("Unsuccessful db connection", ex);
+			logger.error("Unsuccessful db connection", ex);
 		} finally {
 			connection.close();
 			System.out.println("finally block executed");
@@ -72,7 +72,7 @@ public class ClientDAO implements IClientDAO {
 			}
 
 		} catch (SQLException ex) {
-			logger.info("Unsuccessful db connection", ex);
+			logger.error("Unsuccessful db connection", ex);
 		} finally {
 			connection.close();
 			System.out.println("finally block executed");
@@ -106,7 +106,7 @@ public class ClientDAO implements IClientDAO {
 			}
 
 		} catch (SQLException ex) {
-			logger.info("Unsuccessful db connection", ex);
+			logger.error("Unsuccessful db connection", ex);
 		} finally {
 			connection.close();
 			System.out.println("finally block executed");
@@ -137,7 +137,7 @@ public class ClientDAO implements IClientDAO {
 			}
 
 		} catch (SQLException ex) {
-			logger.info("Unsuccessful db connection", ex);
+			logger.error("Unsuccessful db connection", ex);
 		} finally {
 			connection.close();
 			System.out.println("finally block executed");
@@ -162,7 +162,7 @@ public class ClientDAO implements IClientDAO {
 			}
 
 		} catch (SQLException ex) {
-			logger.info("Unsuccessful db connection", ex);
+			logger.error("Unsuccessful db connection", ex);
 		} finally {
 			connection.close();
 			System.out.println("finally block executed");
@@ -205,7 +205,7 @@ public class ClientDAO implements IClientDAO {
 
 			}
 		} catch (SQLException ex) {
-			logger.info("Unsuccessful db connection", ex);
+			logger.error("Unsuccessful db connection", ex);
 		} finally {
 			connection.close();
 			System.out.println("finally block executed");
